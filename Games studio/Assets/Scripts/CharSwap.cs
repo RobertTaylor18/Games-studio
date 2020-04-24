@@ -10,7 +10,7 @@ public class CharSwap : MonoBehaviour
     public GameObject char2;
     
     public CharacterController char1control;
-    public FirstPersonController firstPersonController;
+    //public FirstPersonController firstPersonController;
     public Camera char1cam;
     
     public CharacterController char2control;
@@ -26,11 +26,11 @@ public class CharSwap : MonoBehaviour
         // char1.gameObject.SetActive(true);
         // char2.gameObject.SetActive(false);
 
-        char1control = char1.GetComponent<CharacterController>();
-        firstPersonController = char1.GetComponent<FirstPersonController>();
+       // char1control = char1.GetComponent<CharacterController>();
+     //   firstPersonController = char1.GetComponent<FirstPersonController>();
         char1cam = char1.GetComponentInChildren<Camera>();
         
-        char2control = char2.GetComponent<CharacterController>();
+      //  char2control = char2.GetComponent<CharacterController>();
         //char2script = char2.GetComponent<FirstPersonController>();
         char2cam = char2.GetComponentInChildren<Camera>();
         
@@ -60,11 +60,11 @@ public class CharSwap : MonoBehaviour
         {
             char1control.enabled = false;
             char1cam.enabled = false;
-            char1script.enabled = false;
+         //   char1script.enabled = false;
             
             char2control.enabled = true;
             char2cam.enabled = true;
-            char2script.enabled = true;
+          //  char2script.enabled = true;
             
             //char1.GetComponent<FirstPersonController>().enabled = false;
            // char2.GetComponent<FirstPersonController>().enabled = true;
