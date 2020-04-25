@@ -32,9 +32,11 @@ public class CharSwap : MonoBehaviour
         char2control = char2.GetComponent<CharacterController>();
       //  char2script = char2.GetComponent<FirstPersonController>();
         char2cam = char2.GetComponentInChildren<Camera>();
-        
-       // char1.gameObject.SetActive(true);
+
+
+        // char1.gameObject.SetActive(true);
         //char2.gameObject.SetActive(false);
+
 
         char2control.enabled = false;
         char2cam.enabled = false;
