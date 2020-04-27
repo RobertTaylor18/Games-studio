@@ -17,8 +17,7 @@ public class CharacterController : MonoBehaviour
         get { return targetRotation; }
     }
 
-    float mouseX, mouseY, vertical;
-    float rotSpeed = 4.0f;
+    float horizontal;
 
     void Start()
     {
@@ -29,6 +28,7 @@ public class CharacterController : MonoBehaviour
         else Debug.LogError("The Character needs a rigidbody.");
 
         forwardInput = turnInput = 0;
+        horizontal = transform.eulerAngles.y;
     }
 
     void GetInput()
@@ -66,7 +66,9 @@ public class CharacterController : MonoBehaviour
 
     void Turn()
     {
-        targetRotation *= Quaternion.AngleAxis(rotateVel * turnInput * Time.deltaTime, Vector3.up);
+        horizontal = (horizontal + rotateVel * turnInput) % 360f;
+        targetRotation *= Quaternion.AngleAxis(horizontal, Vector3.up);
+        // targetRotation *= Quaternion.AngleAxis(rotateVel * turnInput * Time.deltaTime, Vector3.up);
         if (Mathf.Abs(turnInput) > inputDelay)
         {
             

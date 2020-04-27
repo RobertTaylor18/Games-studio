@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
     float vertical;
     float rotSpeed = 4.0f;
 
-
+    public GameObject player;
 
 
     void Start()
@@ -71,6 +71,7 @@ public class CameraController : MonoBehaviour
     void LookAtTarget()
     {
         float eulerYAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, target.eulerAngles.y, ref rotateVel, lookSmooth);
-        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, eulerYAngle, 0);
+        // transform.rotation = Quaternion.Euler(transform.eulerAngles.x, eulerYAngle, 0);
+        //transform.rotation = player.transform.rotation;
     }
 }
