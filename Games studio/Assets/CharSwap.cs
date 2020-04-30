@@ -12,7 +12,7 @@ public class CharSwap : MonoBehaviour
     //public FirstPersonController char1script;
     public Camera char1cam;
     
-    public CharacterController char2control;
+    public CharacterController1 char2control;
    // public FirstPersonController char2script;
     public Camera char2cam;
 
@@ -29,7 +29,7 @@ public class CharSwap : MonoBehaviour
        // char1script = char1.GetComponent<FirstPersonController>();
         char1cam = char1.GetComponentInChildren<Camera>();
         
-        char2control = char2.GetComponent<CharacterController>();
+        char2control = char2.GetComponent<CharacterController1>();
       //  char2script = char2.GetComponent<FirstPersonController>();
         char2cam = char2.GetComponentInChildren<Camera>();
 
