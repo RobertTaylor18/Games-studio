@@ -685,9 +685,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!54 &1015686478
 Rigidbody:
@@ -889,7 +889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1470467671
 Transform:
   m_ObjectHideFlags: 0
@@ -938,8 +938,12 @@ MonoBehaviour:
   char2: {fileID: 999668692}
   char1control: {fileID: 1020905007}
   char1cam: {fileID: 963194227}
+  char1camcontrol: {fileID: 963194229}
+  char1rbody: {fileID: 0}
   char2control: {fileID: 999668693}
   char2cam: {fileID: 1111233780}
+  char2camcontrol: {fileID: 1111233778}
+  char2rbody: {fileID: 0}
   character: 1
   swapTimer: 0
 --- !u!4 &1661401681
