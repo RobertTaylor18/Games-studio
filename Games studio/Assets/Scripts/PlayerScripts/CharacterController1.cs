@@ -32,18 +32,21 @@ public class CharacterController1 : MonoBehaviour
 
     void Run()
     {
-        if (Mathf.Abs(forwardInput) > inputDelay)
+        /*if (Mathf.Abs(forwardInput) > inputDelay)
         {
             rBody.velocity = transform.forward * forwardInput * forwardVel;
+          //  rBody.velocity = new Vector3(rBody.velocity.x, rBody.velocity.y, forwardInput * forwardVel);
         }
-        else
-        {
-            // rBody.velocity = Vector3.zero;
-        }
-
-        if (Mathf.Abs(sideInput) > inputDelay)
+        else if (Mathf.Abs(sideInput) > inputDelay)
         {
             rBody.velocity = transform.right * sideInput * forwardVel;
+            // rBody.velocity = new Vector3( sideInput * forwardVel, rBody.velocity.y, rBody.velocity.z);
+        }*/
+        
+        if (Mathf.Abs(forwardInput) > inputDelay || Mathf.Abs(sideInput) > inputDelay)
+        {
+            rBody.velocity = (transform.forward * forwardInput * forwardVel) + (transform.right * sideInput * forwardVel);
+            // rBody.velocity = new Vector3( sideInput * forwardVel, rBody.velocity.y,  forwardInput * forwardVel);
         }
     }
 }

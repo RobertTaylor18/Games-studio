@@ -38,7 +38,7 @@ public class CharacterController : MonoBehaviour
     void GetInput()
     {
         forwardInput = Input.GetAxis("Vertical");
-        turnInput = Input.GetAxis("Mouse X");
+        turnInput = Input.GetAxis("Mouse X")/2;
         //mouseX = Input.GetAxis("Mouse X");
         
     }
@@ -60,6 +60,7 @@ public class CharacterController : MonoBehaviour
         if (Mathf.Abs(forwardInput) > inputDelay)
         {
             rBody.velocity = transform.forward * forwardInput * forwardVel;
+            //rBody.AddForce(transform.forward * forwardInput * forwardVel);
         }
         else
         {
@@ -71,6 +72,7 @@ public class CharacterController : MonoBehaviour
     void Turn()
     {
        horizontal = (horizontal + rotateVel * turnInput) % 360f;
+        horizontal = Mathf.Clamp(horizontal, -3, 3);
         targetRotation *= Quaternion.AngleAxis(horizontal, Vector3.up);
         // targetRotation *= Quaternion.AngleAxis(horizontal * Time.deltaTime, Vector3.up);
         if (Mathf.Abs(turnInput) > inputDelay)
