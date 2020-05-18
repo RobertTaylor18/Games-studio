@@ -24,13 +24,14 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
+        
         targetRotation = transform.rotation;
         if (GetComponent<Rigidbody>())
             rBody = GetComponent<Rigidbody>();
 
         else Debug.LogError("The Character needs a rigidbody.");
 
-        forwardInput = turnInput = 0;
+        forwardInput = turnInput = turnInput = 0;
         horizontal = transform.eulerAngles.y;
     }
 
@@ -62,7 +63,7 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
-           // rBody.velocity = Vector3.zero;
+            rBody.velocity = Vector3.zero;
         }
 
     }
@@ -76,8 +77,8 @@ public class CharacterController : MonoBehaviour
         {
             
         }
-
         transform.rotation = targetRotation;
+
 
     }
 }
