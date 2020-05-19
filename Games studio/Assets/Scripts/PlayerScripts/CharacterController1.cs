@@ -48,5 +48,10 @@ public class CharacterController1 : MonoBehaviour
             rBody.velocity = (transform.forward * forwardInput * forwardVel) + (transform.right * sideInput * forwardVel);
             // rBody.velocity = new Vector3( sideInput * forwardVel, rBody.velocity.y,  forwardInput * forwardVel);
         }
+        else
+        {
+            rBody.velocity = Vector3.zero;
+            rBody.position = rBody.position;
+        }
     }
 }
