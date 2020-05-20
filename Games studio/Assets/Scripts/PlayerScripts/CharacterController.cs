@@ -7,6 +7,7 @@ public class CharacterController : MonoBehaviour
     public float inputDelay = 0.1f;
     public float forwardVel;
     public float rotateVel;
+    public float fallMultiplier;
 
     Quaternion targetRotation;
     Rigidbody rBody;
@@ -47,7 +48,14 @@ public class CharacterController : MonoBehaviour
     {
         GetInput();
         Turn();
-        
+
+        if (rBody.velocity.y < 0)
+        {
+            //rBody.velocity += new Vector3 (0f,-9.81f * fallMultiplier,0f);
+            // rBody.AddForce(0f,-9.81f,0f);
+            rBody.AddForce(Vector3.up * Physics.gravity.y * fallMultiplier);
+        }
+
     }
 
     void FixedUpdate()

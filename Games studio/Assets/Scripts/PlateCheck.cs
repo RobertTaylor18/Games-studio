@@ -17,7 +17,7 @@ public class PlateCheck : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         isActive = true;
     }

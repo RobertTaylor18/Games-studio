@@ -36,7 +36,7 @@ public class PressurePlate : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         activated = true;
     }
