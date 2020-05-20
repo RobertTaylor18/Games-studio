@@ -57,7 +57,7 @@ public class CharSwap : MonoBehaviour
             swapTimer = 0;
         }
 
-        if (Input.GetButton("Fire1") && character == 1 && swapTimer == 0)
+        if (Input.GetButton("Fire2") && character == 1 && swapTimer == 0)
         {
             char1control.enabled = false;
             char1cam.enabled = false;
@@ -73,7 +73,7 @@ public class CharSwap : MonoBehaviour
             character = 2;
             swapTimer = 2;
         }
-        else if (Input.GetButton("Fire1") && character == 2 && swapTimer == 0)
+        else if (Input.GetButton("Fire2") && character == 2 && swapTimer == 0)
         {
             char1control.enabled = true;
             char1cam.enabled = true;
