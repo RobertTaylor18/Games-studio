@@ -79,14 +79,25 @@ public class CharacterController : MonoBehaviour
 
     void Turn()
     {
-       horizontal = (horizontal + rotateVel * turnInput) % 360f;
+         
+        horizontal = (horizontal + rotateVel * turnInput) % 360f;
         horizontal = Mathf.Clamp(horizontal, -3, 3);
+
+        if (horizontal > 0)
+        {
+            horizontal -= 2 * Time.deltaTime;
+        }
+        else if (horizontal < 0)
+        {
+            horizontal += 2 * Time.deltaTime;
+        }
+        else
+        {
+            horizontal = 0;
+        }
+
         targetRotation *= Quaternion.AngleAxis(horizontal, Vector3.up);
         // targetRotation *= Quaternion.AngleAxis(horizontal * Time.deltaTime, Vector3.up);
-        if (Mathf.Abs(turnInput) > inputDelay)
-        {
-            
-        }
         transform.rotation = targetRotation;
 
 

@@ -44,27 +44,34 @@ public class CharacterController1 : MonoBehaviour
 
     void Run()
     {
-        /*if (Mathf.Abs(forwardInput) > inputDelay)
-        {
-            rBody.velocity = transform.forward * forwardInput * forwardVel;
-          //  rBody.velocity = new Vector3(rBody.velocity.x, rBody.velocity.y, forwardInput * forwardVel);
-        }
-        else if (Mathf.Abs(sideInput) > inputDelay)
-        {
-            rBody.velocity = transform.right * sideInput * forwardVel;
-            // rBody.velocity = new Vector3( sideInput * forwardVel, rBody.velocity.y, rBody.velocity.z);
-        }*/
         
         if (Mathf.Abs(forwardInput) > inputDelay || Mathf.Abs(sideInput) > inputDelay)
         {
             rBody.velocity = (transform.forward * forwardInput * forwardVel) + (transform.right * sideInput * forwardVel);
-            // rBody.velocity = new Vector3( sideInput * forwardVel, rBody.velocity.y,  forwardInput * forwardVel);
+
+            //Sprint
+            /*if (Input.GetButtonDown("Fire3"))
+             {
+                 rBody.velocity = (transform.forward * forwardInput * forwardVel * 2) + (transform.right * sideInput * forwardVel * 2);
+             }*/
+
+            if (Input.GetButtonDown("Fire3"))
+            {
+                rBody.velocity = new Vector3(sideInput*100, 0f, forwardInput * 100);
+            }
+           
         }
         else
         {
             rBody.velocity = Vector3.zero;
             rBody.position = rBody.position;
         }
+
+       /* if (Input.GetButtonDown("Fire3") && (Mathf.Abs(forwardInput) > 0 || Mathf.Abs(sideInput) > 0))
+        {
+            if (forwardInput >)
+            rBody.velocity = (transform.forward * forwardInput * forwardVel * 2) + (transform.right * sideInput * forwardVel * 2);
+        }*/
     }
 
     void Jump()
