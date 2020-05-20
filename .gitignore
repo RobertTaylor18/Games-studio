@@ -58,3 +58,13 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Games studio/ProjectSettings/VFXManager.asset
+Games studio/ProjectSettings/UnityConnectSettings.asset
+Games studio/ProjectSettings/TimeManager.asset
+Games studio/ProjectSettings/TagManager.asset
+Games studio/ProjectSettings/PresetManager.asset
+Games studio/ProjectSettings/NavMeshAreas.asset
+Games studio/ProjectSettings/GraphicsSettings.asset
+Games studio/ProjectSettings/EditorBuildSettings.asset
+Games studio/ProjectSettings/ClusterInputManager.asset
+Games studio/ProjectSettings/AudioManager.asset
