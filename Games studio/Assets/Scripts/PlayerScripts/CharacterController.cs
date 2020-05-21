@@ -7,7 +7,7 @@ public class CharacterController : MonoBehaviour
     public float inputDelay = 0.1f;
     public float forwardVel;
     public float rotateVel;
-    public float fallMultiplier;
+    float fallMultiplier  = 30f;
 
     Quaternion targetRotation;
     Rigidbody rBody;
@@ -85,11 +85,11 @@ public class CharacterController : MonoBehaviour
 
         if (horizontal > 0)
         {
-            horizontal -= 2 * Time.deltaTime;
+            horizontal -= 4 * Time.deltaTime;
         }
         else if (horizontal < 0)
         {
-            horizontal += 2 * Time.deltaTime;
+            horizontal += 4 * Time.deltaTime;
         }
         else
         {

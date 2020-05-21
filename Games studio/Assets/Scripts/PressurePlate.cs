@@ -10,6 +10,8 @@ public class PressurePlate : MonoBehaviour
     public PlateCheck p2Script;
     public float doorSpeed;
 
+    public int plateId;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,11 +30,25 @@ public class PressurePlate : MonoBehaviour
 
         if (activated == true && p2Script.isActive == true)
         {
-            door.transform.Translate(doorSpeed, 0, 0);
+            if (plateId == 1)
+            {
+                door.transform.Translate(doorSpeed, 0, 0);
+            }
+            else if (plateId == 2)
+            {
+                door.transform.Translate(doorSpeed, 0, 0);
+            }
         }
         else
         {
-            door.transform.position = new Vector3(10f, 1.2f, 7f);
+            if (plateId == 1)
+            {
+                door.transform.position = new Vector3(10f, 1.2f, 7f);
+            }
+            else if (plateId == 2)
+            {
+                door.transform.position = new Vector3(7f, 13.5f, -31f);
+            }
         }
     }
 

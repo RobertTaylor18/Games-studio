@@ -20,6 +20,7 @@ public class CharSwap : MonoBehaviour
 
     public int character = 1;
     public float swapTimer = 0;
+    public float swapDist;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,8 @@ public class CharSwap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        swapDist = Vector3.Distance(char1.transform.position, char2.transform.position);
+
         if (swapTimer > 0) {
             swapTimer -= Time.deltaTime;
         }
@@ -57,7 +60,7 @@ public class CharSwap : MonoBehaviour
             swapTimer = 0;
         }
 
-        if (Input.GetButton("Fire2") && character == 1 && swapTimer == 0)
+        if (Input.GetButton("Fire2") && character == 1 && swapTimer == 0 && swapDist <= 50 )
         {
             char1control.enabled = false;
             char1cam.enabled = false;
@@ -73,7 +76,7 @@ public class CharSwap : MonoBehaviour
             character = 2;
             swapTimer = 2;
         }
-        else if (Input.GetButton("Fire2") && character == 2 && swapTimer == 0)
+        else if (Input.GetButton("Fire2") && character == 2 && swapTimer == 0 && swapDist <= 50)
         {
             char1control.enabled = true;
             char1cam.enabled = true;
