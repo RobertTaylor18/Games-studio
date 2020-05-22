@@ -21,9 +21,10 @@ public class PressurePlate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        doorSpeed = Mathf.Clamp(2 * Time.deltaTime, 0f, 5f);
 
-        if (door.transform.position.x > 16)
+        
+
+        if (door.transform.position.x > 16 || door.transform.position.z < -38)
         {
             doorSpeed = 0;
         }
@@ -32,10 +33,12 @@ public class PressurePlate : MonoBehaviour
         {
             if (plateId == 1)
             {
+                doorSpeed = Mathf.Clamp(2 * Time.deltaTime, 0f, 5f);
                 door.transform.Translate(doorSpeed, 0, 0);
             }
             else if (plateId == 2)
             {
+                doorSpeed = Mathf.Clamp(2 * Time.deltaTime, 0f, 5f);
                 door.transform.Translate(doorSpeed, 0, 0);
             }
         }
@@ -47,7 +50,7 @@ public class PressurePlate : MonoBehaviour
             }
             else if (plateId == 2)
             {
-                door.transform.position = new Vector3(7f, 13.5f, -31f);
+                door.transform.position = new Vector3(7f, 7.5f, -31f);
             }
         }
     }
@@ -60,6 +63,13 @@ public class PressurePlate : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         activated = false;
-        door.transform.Translate(-10, 0, 0);
+       /* if (plateId == 1)
+        {
+            door.transform.Translate(-10, 0, 0);
+        }
+        else if (plateId == 2)
+        {
+            door.transform.Translate(10, 0, 0);
+        }*/
     }
 }

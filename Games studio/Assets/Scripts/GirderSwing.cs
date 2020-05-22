@@ -23,8 +23,8 @@ public class GirderSwing : MonoBehaviour
     {
         swingTimer += Time.deltaTime;
 
-        swingTimerSin = Mathf.Sin(swingTimer) * 10;
+        swingTimerSin = Mathf.Sin(swingTimer) * 30;
 
-        this.transform.position = new Vector3(57f+swingTimerSin, 9f, -38f);
+        this.transform.position = new Vector3(60f+swingTimerSin, 9f, -38f);
     }
 }
