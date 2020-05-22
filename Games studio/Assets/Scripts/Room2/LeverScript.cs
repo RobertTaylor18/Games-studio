@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LeverScript : MonoBehaviour
 {
+    [SerializeField] private Animator myAnimationContoller;
+
     public bool activated = false;
     public float movingSpeed;
 
@@ -29,10 +31,12 @@ public class LeverScript : MonoBehaviour
                 if (!activated)
                 {
                     activated = true;
+                    myAnimationContoller.SetBool("leverActive", true);
                 }
                 else if (activated)
                 {
                     activated = false;
+                    myAnimationContoller.SetBool("leverActive", false);
                 }
             }
         }

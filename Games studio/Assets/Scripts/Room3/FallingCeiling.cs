@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FallingCeiling : MonoBehaviour
 {
+    [SerializeField] private Animator myAnimationContoller;
+
     public bool activated = false;
     public float movingSpeed;
 
@@ -33,10 +35,12 @@ public class FallingCeiling : MonoBehaviour
             {
                 if (!activated)
                 {
+                    myAnimationContoller.SetBool("leverActive", true);
                     activated = true;
                 }
                 else if (activated)
                 {
+                    myAnimationContoller.SetBool("leverActive", false);
                     activated = false;
                 }
             }
@@ -44,12 +48,14 @@ public class FallingCeiling : MonoBehaviour
 
         if (activated)
         {
+            
             ceiling.velocity = new Vector3(0, -0.5f, 0);
             door.velocity = new Vector3(4, 0, 0);
 
         }
         else if (!activated)
         {
+            myAnimationContoller.SetBool("leverActive", false);
             ceiling.transform.localPosition = new Vector3(95.56999f,48.9802f, -17.98616f);
             door.transform.localPosition = new Vector3(125.64f, 7.78f, 14.87f);
         }

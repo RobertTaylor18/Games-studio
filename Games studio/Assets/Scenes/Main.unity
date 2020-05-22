@@ -3274,12 +3274,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a93ca7619c4da144b4d7a292485387b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myAnimationContoller: {fileID: 0}
   activated: 0
   movingSpeed: 0
   ramp: {fileID: 1009171151}
   leverHandel: {fileID: 688876716}
   MSMR: {fileID: 1203336618}
   selectionManager: {fileID: 0}
+--- !u!95 &599019313
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599019311}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b7615ad0a5475dc459b8cf6f7a00536e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &670439778
 GameObject:
   m_ObjectHideFlags: 0
@@ -4053,6 +4073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 292e2c6a700de7e4d8778b987e5e68dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myAnimationContoller: {fileID: 741642262}
   activated: 0
   movingSpeed: 0
   ceiling: {fileID: 1880638617}
@@ -4062,6 +4083,25 @@ MonoBehaviour:
   temp: {fileID: 0}
   ceilingCollider: {fileID: 0}
   selectionManager: {fileID: 0}
+--- !u!95 &741642262
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741642260}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0cd33ba9f5b564e8a21d3888f8c57e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &751915708
 GameObject:
   m_ObjectHideFlags: 0
