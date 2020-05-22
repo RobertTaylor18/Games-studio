@@ -49,7 +49,7 @@ public class FallingCeiling : MonoBehaviour
         if (activated)
         {
             
-            ceiling.velocity = new Vector3(0, -0.5f, 0);
+            ceiling.velocity = new Vector3(0, -1f, 0);
             door.velocity = new Vector3(4, 0, 0);
 
         }
