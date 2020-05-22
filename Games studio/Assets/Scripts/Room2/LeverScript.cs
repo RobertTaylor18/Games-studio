@@ -39,7 +39,7 @@ public class LeverScript : MonoBehaviour
 
 
 
-        movingSpeed = Mathf.Clamp(2f, 0f, 5f * Time.deltaTime);
+        movingSpeed = Mathf.Clamp(1f, 1f, 5f * Time.deltaTime);
 
         if (ramp.transform.position.y > 1.19)
         {
