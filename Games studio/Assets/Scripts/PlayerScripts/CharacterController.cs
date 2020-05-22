@@ -49,13 +49,6 @@ public class CharacterController : MonoBehaviour
         GetInput();
         Turn();
 
-        if (rBody.velocity.y < 0)
-        {
-            //rBody.velocity += new Vector3 (0f,-9.81f * fallMultiplier,0f);
-            // rBody.AddForce(0f,-9.81f,0f);
-            rBody.AddForce(Vector3.up * Physics.gravity.y * fallMultiplier);
-        }
-
     }
 
     void FixedUpdate()
@@ -67,12 +60,13 @@ public class CharacterController : MonoBehaviour
     {
         if (Mathf.Abs(forwardInput) > inputDelay)
         {
-            rBody.velocity = transform.forward * forwardInput * forwardVel;
-            //rBody.AddForce(transform.forward * forwardInput * forwardVel);
+            Vector3 temp = transform.forward * forwardInput * forwardVel;
+            rBody.velocity = new Vector3(temp.x, rBody.velocity.y, temp.z);
         }
         else
         {
-            rBody.velocity = Vector3.zero;
+            rBody.velocity = new Vector3(0, rBody.velocity.y, 0);
+
         }
 
     }
