@@ -54,7 +54,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -88,6 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 684645434787115262}
+  - component: {fileID: 6108910537572744450}
   m_Layer: 0
   m_Name: Lever
   m_TagString: Untagged
@@ -111,6 +111,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 180}
+--- !u!114 &6108910537572744450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4601272258957329133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a93ca7619c4da144b4d7a292485387b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAnimationContoller: {fileID: 0}
+  activated: 0
+  movingSpeed: 0
+  ramp: {fileID: 0}
+  leverHandel: {fileID: 0}
+  MSMR: {fileID: 0}
+  selectionManager: {fileID: 0}
 --- !u!1 &5114779413336536351
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +185,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
