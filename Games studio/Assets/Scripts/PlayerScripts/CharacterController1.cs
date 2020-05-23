@@ -11,6 +11,12 @@ public class CharacterController1 : MonoBehaviour
 
     public Vector3 Mag;
 
+    public bool isGrounded = false;
+    public Transform groundCheck;
+    public float groundRadius = .1f;
+    public LayerMask Ground;
+    public float jumpCount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +45,14 @@ public class CharacterController1 : MonoBehaviour
     {
         Run();
         Jump();
+
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, Ground);
+
+        if (isGrounded)
+        {
+            jumpCount = 0;
+        }
+        
     }
 
     void GetInput()
@@ -57,15 +71,16 @@ public class CharacterController1 : MonoBehaviour
             //rBody.velocity = (transform.forward * forwardInput * forwardVel) + (transform.right * sideInput * forwardVel);
 
             //Sprint
-            /*if (Input.GetButtonDown("Fire3"))
+            if (Input.GetButtonDown("Fire3"))
              {
                  rBody.velocity = (transform.forward * forwardInput * forwardVel * 2) + (transform.right * sideInput * forwardVel * 2);
-             }*/
+             }
 
+            /*
             if (Input.GetButtonDown("Fire3"))
             {
                 rBody.velocity = new Vector3(sideInput*100, rBody.velocity.y, forwardInput * 100); 
-            }
+            }*/
            
         }
         else
@@ -86,10 +101,11 @@ public class CharacterController1 : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && jumpCount < 1)
         {
             rBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             //rBody.velocity = new Vector3(0f,jumpForce,0f);
+            jumpCount++;
         }
     }
 }

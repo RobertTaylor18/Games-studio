@@ -21,10 +21,27 @@ public class GirderSwing : MonoBehaviour
 
     void Swing()
     {
-        swingTimer += Time.deltaTime;
+        swingTimer += Time.deltaTime * .5f;
 
-        swingTimerSin = Mathf.Sin(swingTimer) * 30;
+        swingTimerSin = Mathf.Sin(swingTimer) * 20;
 
-        this.transform.position = new Vector3(60f+swingTimerSin, 9f, -38f);
+        this.transform.position = new Vector3(65f+swingTimerSin, 9f, -38f);
+    }
+
+    void OnCollisionStay(Collision other) 
+    {
+        other.gameObject.transform.parent = this.gameObject.transform;
+    }
+
+    void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Crate"))
+        {
+            other.gameObject.transform.parent = GameObject.Find("Props").transform;
+        }
+        else if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.transform.parent = GameObject.Find("Char2").transform;
+        }
     }
 }

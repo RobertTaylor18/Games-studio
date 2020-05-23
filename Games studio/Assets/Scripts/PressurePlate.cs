@@ -24,21 +24,28 @@ public class PressurePlate : MonoBehaviour
 
         
 
-        if (door.transform.position.x > 16 || door.transform.position.z < -38)
-        {
-            doorSpeed = 0;
-        }
+        
 
         if (activated == true && p2Script.isActive == true)
         {
             if (plateId == 1)
             {
-                doorSpeed = Mathf.Clamp(2 * Time.deltaTime, 0f, 5f);
+                doorSpeed = Mathf.Clamp(2 * Time.deltaTime, 0f, 2f);
+
+                if (door.transform.position.x > 16)
+                {
+                    doorSpeed = 0;
+                }
                 door.transform.Translate(doorSpeed, 0, 0);
             }
             else if (plateId == 2)
             {
                 doorSpeed = Mathf.Clamp(2 * Time.deltaTime, 0f, 5f);
+                
+                if (door.transform.position.z < -39)
+                {
+                    doorSpeed = 0;
+                }
                 door.transform.Translate(doorSpeed, 0, 0);
             }
         }
