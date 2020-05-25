@@ -22,11 +22,14 @@ public class LeverScript : MonoBehaviour
         selectionManager = MSMR.GetComponent<SelectionManager>();
     }
     // Update is called once per frame
+
+
+
     void Update()
     {
         if (selectionManager._selection == leverHandel)
         {
-            if (Input.GetKeyDown("e"))
+            if (Input.GetButtonDown("Fire1"))
             {
                 if (!activated)
                 {
@@ -45,7 +48,7 @@ public class LeverScript : MonoBehaviour
 
         movingSpeed = Mathf.Clamp(1f, 1f, 5f * Time.deltaTime);
 
-        if (ramp.transform.position.y > 1.19)
+        if (ramp.transform.position.y > 1.15)
         {
             movingSpeed = 0;
         }
@@ -56,7 +59,7 @@ public class LeverScript : MonoBehaviour
         }
         else
         {
-            ramp.transform.position = new Vector3(106.7477f, -4f, 30f);
+            ramp.transform.position = new Vector3(105.7477f, -4f, 30.79f);
         }
     }
 

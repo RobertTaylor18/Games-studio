@@ -65,13 +65,15 @@ public class CharSwap : MonoBehaviour
             char1control.enabled = false;
             char1cam.enabled = false;
             char1camcontrol.enabled = false;
-            char1rbody.constraints = RigidbodyConstraints.FreezeAll;
-            
+            char1rbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+            //char1rbody.constraints = RigidbodyConstraints.FreezePositionX & RigidbodyConstraints.FreezePositionZ & RigidbodyConstraints.FreezeRotation;
+
+
             char2control.enabled = true;
             char2cam.enabled = true;
             char2camcontrol.enabled = true;
             char2rbody.constraints = RigidbodyConstraints.None;
-            char2rbody.constraints = RigidbodyConstraints.FreezeRotationX & RigidbodyConstraints.FreezeRotationZ;
+            char2rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
             character = 2;
             swapTimer = 2;
@@ -82,12 +84,12 @@ public class CharSwap : MonoBehaviour
             char1cam.enabled = true;
             char1camcontrol.enabled = true;
             char1rbody.constraints = RigidbodyConstraints.None;
-            char1rbody.constraints = RigidbodyConstraints.FreezeRotationX & RigidbodyConstraints.FreezeRotationZ;
+            char1rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
             char2control.enabled = false;
             char2cam.enabled = false;
             char2camcontrol.enabled = false;
-            char2rbody.constraints = RigidbodyConstraints.FreezeAll;
+            char2rbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
 
             character = 1;
             swapTimer = 2;

@@ -31,7 +31,7 @@ public class FallingCeiling : MonoBehaviour
     {
         if (selectionManager._selection == leverHandel)
         {
-            if (Input.GetKeyDown("e"))
+            if (Input.GetButtonDown("Fire1"))
             {
                 if (!activated)
                 {
