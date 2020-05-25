@@ -26,6 +26,7 @@ public class CharacterController1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Jump();
         Mag = rBody.velocity;
         GetInput();
 
@@ -44,7 +45,7 @@ public class CharacterController1 : MonoBehaviour
     void FixedUpdate()
     {
         Run();
-        Jump();
+        
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, Ground);
 
