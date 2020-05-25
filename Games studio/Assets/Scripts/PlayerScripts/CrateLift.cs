@@ -10,7 +10,10 @@ public class CrateLift : MonoBehaviour
     public Rigidbody playerRB;
     public Renderer crateRenderer;
     public bool isColliding;
- 
+
+    public AudioClip audioClip;
+    AudioSource audioSource;
+
 
     void Start()
     {
@@ -18,6 +21,9 @@ public class CrateLift : MonoBehaviour
         swapScript = GameObject.Find("Player").GetComponent<CharSwap>();
 
         crateRenderer = this.GetComponent<Renderer>();
+
+        audioSource = GetComponent<AudioSource>();
+        audioClip = audioSource.clip;
     }
 
 
@@ -41,12 +47,17 @@ public class CrateLift : MonoBehaviour
         rBody.gameObject.layer = 11;
         this.transform.parent = GameObject.Find("Props").transform;
         rBody.useGravity = true;
-        rBody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        rBody.constraints = RigidbodyConstraints.None;
         Color tempColor = crateRenderer.material.color;
         tempColor.a = 1;
         crateRenderer.material.color = tempColor;
     }
 
+
+    void OnCollisionEnter(Collision collision)
+    {
+        audioSource.PlayOneShot(audioClip, 1);
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Fork")

@@ -13,6 +13,9 @@ public class LeverScript : MonoBehaviour
     public Transform leverHandel;
     public GameObject MSMR;
 
+    public AudioClip audioClip;
+    AudioSource audioSource;
+
 
 
     public SelectionManager selectionManager;
@@ -20,6 +23,9 @@ public class LeverScript : MonoBehaviour
     void Start()
     {
         selectionManager = MSMR.GetComponent<SelectionManager>();
+
+        audioSource = GetComponent<AudioSource>();
+        audioClip = audioSource.clip;
     }
     // Update is called once per frame
 
@@ -31,6 +37,9 @@ public class LeverScript : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1"))
             {
+
+                audioSource.PlayOneShot(audioClip, 0.5f);
+
                 if (!activated)
                 {
                     activated = true;

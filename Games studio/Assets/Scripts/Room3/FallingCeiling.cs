@@ -19,10 +19,16 @@ public class FallingCeiling : MonoBehaviour
 
     public SelectionManager selectionManager;
 
+    public AudioClip audioClip;
+    AudioSource audioSource;
+
     void Start()
     {
         selectionManager = MSMR.GetComponent<SelectionManager>();
         ceilingCollider = ceiling.GetComponent<CeilingCollider>();
+
+        audioSource = GetComponent<AudioSource>();
+        audioClip = audioSource.clip;
 
 
     }
@@ -33,6 +39,7 @@ public class FallingCeiling : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1"))
             {
+                audioSource.PlayOneShot(audioClip, 0.5f);
                 if (!activated)
                 {
                     myAnimationContoller.SetBool("leverActive", true);
