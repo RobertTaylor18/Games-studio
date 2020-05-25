@@ -43,8 +43,6 @@ public class PlateCheck : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         isActive = false;
-        audioSource.pitch = 0.1f;
-        audioSource.PlayOneShot(audioClip, 1);
     }
 }
 
