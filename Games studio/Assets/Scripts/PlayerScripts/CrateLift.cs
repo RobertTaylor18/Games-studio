@@ -56,6 +56,7 @@ public class CrateLift : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        audioSource.volume = 0.1f;
         audioSource.PlayOneShot(audioClip, 1);
     }
     void OnTriggerEnter(Collider other)

@@ -22,11 +22,12 @@ public class CharSwap : MonoBehaviour
     public float swapTimer = 0;
     public float swapDist;
 
+    private AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        // char1.gameObject.SetActive(true);
-        // char2.gameObject.SetActive(false);
+        audioManager = FindObjectOfType<AudioManager>();
 
         char1control = char1.GetComponent<CharacterController>();
         char1cam = char1.GetComponentInChildren<Camera>();
@@ -44,7 +45,8 @@ public class CharSwap : MonoBehaviour
         char2control.enabled = false;
         char2cam.enabled = false;
         char2camcontrol.enabled = false;
-        
+
+        audioManager.Play("MORTE Walking");
     }
 
     // Update is called once per frame
@@ -77,6 +79,11 @@ public class CharSwap : MonoBehaviour
 
             character = 2;
             swapTimer = 2;
+
+            audioManager.Stop("MORTE Walking");
+            audioManager.Play("MORTE Walking End");
+
+
         }
         else if (Input.GetButton("Fire2") && character == 2 && swapTimer == 0 && swapDist <= 65)
         {
@@ -93,6 +100,9 @@ public class CharSwap : MonoBehaviour
 
             character = 1;
             swapTimer = 2;
+
+            audioManager.Play("MORTE Walking");
+            audioManager.Play("MSMR Walking");
         }
     }
 }

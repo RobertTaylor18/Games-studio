@@ -29,8 +29,6 @@ public class FallingCeiling : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
         audioClip = audioSource.clip;
-
-
     }
     // Update is called once per frame
     void Update()
@@ -55,10 +53,8 @@ public class FallingCeiling : MonoBehaviour
 
         if (activated)
         {
-            
             ceiling.velocity = new Vector3(0, -1f, 0);
             door.velocity = new Vector3(4, 0, 0);
-
         }
         else if (!activated)
         {
@@ -71,7 +67,6 @@ public class FallingCeiling : MonoBehaviour
         {
             door.velocity = Vector3.zero;
         }
-
     }
 
 

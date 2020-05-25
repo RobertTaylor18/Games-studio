@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
             s.sourse.clip = s.clip;
 
             s.sourse.volume = s.volume;
+            s.sourse.pitch = s.pitch;
             s.sourse.loop = s.loop;
         }
     }
@@ -37,4 +38,16 @@ public class AudioManager : MonoBehaviour
         }
         s.sourse.Play();
     }
+
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound" + name + "not found.");
+            return;
+        }
+        s.sourse.Stop();
+    }
+
 }

@@ -7,39 +7,28 @@ public class CharacterController1 : MonoBehaviour
     public Rigidbody rBody;
     public float inputDelay, forwardVel, jumpForce, fallMultiplier;
     float forwardInput, sideInput;
-    public float grav, fallgrav;
-
-    public Vector3 Mag;
+    private bool playedOnce = false;
 
     public bool isGrounded = false;
     public Transform groundCheck;
     public float groundRadius = .1f;
     public LayerMask Ground;
     public float jumpCount;
+    public AudioManager audioManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Jump();
-        Mag = rBody.velocity;
         GetInput();
-
-        grav = Physics.gravity.y;
-
-        if (rBody.velocity.y < 0)
-        {
-
-            //rBody.velocity += new Vector3 (0f,-9.81f * fallMultiplier,0f);
-            // rBody.AddForce(0f,-9.81f,0f);
-            //rBody.AddForce(Vector3.up * Physics.gravity.y * fallMultiplier);
-        }
-        fallgrav = rBody.velocity.y;
     }
 
     void FixedUpdate()
@@ -67,6 +56,7 @@ public class CharacterController1 : MonoBehaviour
         
         if (Mathf.Abs(forwardInput) > inputDelay || Mathf.Abs(sideInput) > inputDelay)
         {
+
             Vector3 temp = (transform.forward * forwardInput * forwardVel) + (transform.right * sideInput * forwardVel);
             rBody.velocity = new Vector3(temp.x, rBody.velocity.y, temp.z);
             //rBody.velocity = (transform.forward * forwardInput * forwardVel) + (transform.right * sideInput * forwardVel);
@@ -82,15 +72,23 @@ public class CharacterController1 : MonoBehaviour
             {
                 rBody.velocity = new Vector3(sideInput*100, rBody.velocity.y, forwardInput * 100); 
             }*/
+
+            if (!playedOnce)
+            {
+                audioManager.Play("MSMR Walking");
+                playedOnce = true;
+            }
+
            
         }
         else
         {
             //rBody.velocity = Vector3.zero;
             rBody.velocity = new Vector3(0, rBody.velocity.y, 0);
-
-
             rBody.position = rBody.position;
+
+            audioManager.Stop("MSMR Walking");
+            playedOnce = false;
         }
 
        /* if (Input.GetButtonDown("Fire3") && (Mathf.Abs(forwardInput) > 0 || Mathf.Abs(sideInput) > 0))
