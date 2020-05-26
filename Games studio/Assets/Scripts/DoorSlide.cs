@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorSlide : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class DoorSlide : MonoBehaviour
     void Start()
     {
         activate = true;
+        StartCoroutine("sceneTimer");
     }
 
     // Update is called once per frame
@@ -24,5 +26,13 @@ public class DoorSlide : MonoBehaviour
         {
             transform.position = new Vector3(1f, 7f, 29f);
         }
+
+    }
+
+    public IEnumerator sceneTimer()
+    {
+        
+        yield return new WaitForSeconds(6.5f);//Uses a timer outside of update so it isn't tied to fps
+        SceneManager.LoadScene("Main", LoadSceneMode.Single);
     }
 }
