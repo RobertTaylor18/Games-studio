@@ -24,6 +24,10 @@ public class CharSwap : MonoBehaviour
 
     private AudioManager audioManager;
 
+    public GameObject char1Canvas;
+    public GameObject char2Canvas;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +49,11 @@ public class CharSwap : MonoBehaviour
         char2control.enabled = false;
         char2cam.enabled = false;
         char2camcontrol.enabled = false;
+
+        char1Canvas = GameObject.Find("Canvas MORTE");
+        char2Canvas = GameObject.Find("Canvas MSMR");
+
+        char2Canvas.SetActive(false);
 
         audioManager.Play("MORTE Walking");
     }
@@ -83,6 +92,8 @@ public class CharSwap : MonoBehaviour
             audioManager.Stop("MORTE Walking");
             audioManager.Play("MORTE Walking End");
 
+            char1Canvas.SetActive(false);
+            char2Canvas.SetActive(true);
 
         }
         else if (Input.GetButton("Fire2") && character == 2 && swapTimer == 0 && swapDist <= 65)
@@ -103,6 +114,9 @@ public class CharSwap : MonoBehaviour
 
             audioManager.Play("MORTE Walking");
             audioManager.Play("MSMR Walking");
+
+            char1Canvas.SetActive(true);
+            char2Canvas.SetActive(false);
         }
     }
 }

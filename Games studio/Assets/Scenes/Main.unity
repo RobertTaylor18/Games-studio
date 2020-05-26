@@ -830,6 +830,7 @@ Transform:
   - {fileID: 1583699233}
   - {fileID: 1478793033}
   - {fileID: 758994045}
+  - {fileID: 541261057}
   m_Father: {fileID: 2044384991}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1222,8 +1223,8 @@ RectTransform:
   - {fileID: 1734814695}
   - {fileID: 1924278151}
   - {fileID: 1976342171}
-  m_Father: {fileID: 0}
-  m_RootOrder: 38
+  m_Father: {fileID: 839263208}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4413,8 +4414,8 @@ RectTransform:
   - {fileID: 903989484}
   - {fileID: 978592116}
   - {fileID: 247694944}
-  m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_Father: {fileID: 131083570}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7457,6 +7458,7 @@ Transform:
   - {fileID: 1875376934}
   - {fileID: 1203336619}
   - {fileID: 734286290}
+  - {fileID: 147545982}
   m_Father: {fileID: 1928277153}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14091,6 +14093,8 @@ MonoBehaviour:
   character: 1
   swapTimer: 0
   swapDist: 0
+  char1Canvas: {fileID: 0}
+  char2Canvas: {fileID: 0}
 --- !u!4 &1451138897
 Transform:
   m_ObjectHideFlags: 0
@@ -15629,6 +15633,8 @@ MonoBehaviour:
   character: 1
   swapTimer: 0
   swapDist: 0
+  char1Canvas: {fileID: 0}
+  char2Canvas: {fileID: 0}
 --- !u!4 &1661401681
 Transform:
   m_ObjectHideFlags: 0
