@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class CharacterController : MonoBehaviour
 {
@@ -95,5 +96,10 @@ public class CharacterController : MonoBehaviour
         transform.rotation = targetRotation;
 
 
+    }
+
+    internal void SimpleMove(Vector3 vector3)
+    {
+        throw new NotImplementedException();
     }
 }

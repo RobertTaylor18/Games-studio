@@ -10,21 +10,35 @@ public class PressurePlate : MonoBehaviour
     public PlateCheck p2Script;
     public float doorSpeed;
 
+    public AudioClip audioClip;
+    AudioSource audioSource;
+    private bool playedOnce = false;
+
     public int plateId;
 
     // Start is called before the first frame update
     void Start()
     {
         p2Script = p2.GetComponent<PlateCheck>();
+        audioSource = GetComponent<AudioSource>();
+        audioClip = audioSource.clip;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (activated & !playedOnce)
+        {
+            playedOnce = true;
+            audioSource.PlayOneShot(audioClip, 1);
+        }
+        if (!activated)
+        {
+            playedOnce = false;
+        }
 
-        
 
-        
+
 
         if (activated == true && p2Script.isActive == true)
         {

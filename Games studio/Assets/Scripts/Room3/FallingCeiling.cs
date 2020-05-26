@@ -19,20 +19,25 @@ public class FallingCeiling : MonoBehaviour
 
     public SelectionManager selectionManager;
 
+    public AudioClip audioClip;
+    AudioSource audioSource;
+
     void Start()
     {
         selectionManager = MSMR.GetComponent<SelectionManager>();
         ceilingCollider = ceiling.GetComponent<CeilingCollider>();
 
-
+        audioSource = GetComponent<AudioSource>();
+        audioClip = audioSource.clip;
     }
     // Update is called once per frame
     void Update()
     {
         if (selectionManager._selection == leverHandel)
         {
-            if (Input.GetKeyDown("e"))
+            if (Input.GetButtonDown("Fire1"))
             {
+                audioSource.PlayOneShot(audioClip, 0.5f);
                 if (!activated)
                 {
                     myAnimationContoller.SetBool("leverActive", true);
@@ -48,10 +53,8 @@ public class FallingCeiling : MonoBehaviour
 
         if (activated)
         {
-            
             ceiling.velocity = new Vector3(0, -1f, 0);
             door.velocity = new Vector3(4, 0, 0);
-
         }
         else if (!activated)
         {
@@ -64,7 +67,6 @@ public class FallingCeiling : MonoBehaviour
         {
             door.velocity = Vector3.zero;
         }
-
     }
 
 

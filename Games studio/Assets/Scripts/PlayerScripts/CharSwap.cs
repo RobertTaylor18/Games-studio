@@ -22,11 +22,12 @@ public class CharSwap : MonoBehaviour
     public float swapTimer = 0;
     public float swapDist;
 
+    private AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        // char1.gameObject.SetActive(true);
-        // char2.gameObject.SetActive(false);
+        audioManager = FindObjectOfType<AudioManager>();
 
         char1control = char1.GetComponent<CharacterController>();
         char1cam = char1.GetComponentInChildren<Camera>();
@@ -44,7 +45,8 @@ public class CharSwap : MonoBehaviour
         char2control.enabled = false;
         char2cam.enabled = false;
         char2camcontrol.enabled = false;
-        
+
+        audioManager.Play("MORTE Walking");
     }
 
     // Update is called once per frame
@@ -65,16 +67,23 @@ public class CharSwap : MonoBehaviour
             char1control.enabled = false;
             char1cam.enabled = false;
             char1camcontrol.enabled = false;
-            char1rbody.constraints = RigidbodyConstraints.FreezeAll;
-            
+            char1rbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+            //char1rbody.constraints = RigidbodyConstraints.FreezePositionX & RigidbodyConstraints.FreezePositionZ & RigidbodyConstraints.FreezeRotation;
+
+
             char2control.enabled = true;
             char2cam.enabled = true;
             char2camcontrol.enabled = true;
             char2rbody.constraints = RigidbodyConstraints.None;
-            char2rbody.constraints = RigidbodyConstraints.FreezeRotationX & RigidbodyConstraints.FreezeRotationZ;
+            char2rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
             character = 2;
             swapTimer = 2;
+
+            audioManager.Stop("MORTE Walking");
+            audioManager.Play("MORTE Walking End");
+
+
         }
         else if (Input.GetButton("Fire2") && character == 2 && swapTimer == 0 && swapDist <= 65)
         {
@@ -82,15 +91,18 @@ public class CharSwap : MonoBehaviour
             char1cam.enabled = true;
             char1camcontrol.enabled = true;
             char1rbody.constraints = RigidbodyConstraints.None;
-            char1rbody.constraints = RigidbodyConstraints.FreezeRotationX & RigidbodyConstraints.FreezeRotationZ;
+            char1rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
             char2control.enabled = false;
             char2cam.enabled = false;
             char2camcontrol.enabled = false;
-            char2rbody.constraints = RigidbodyConstraints.FreezeAll;
+            char2rbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
 
             character = 1;
             swapTimer = 2;
+
+            audioManager.Play("MORTE Walking");
+            audioManager.Play("MSMR Walking");
         }
     }
 }

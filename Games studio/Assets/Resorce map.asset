@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b0f2e7fc23e46c78f6dc1a54c32708, type: 3}
+  m_Name: Resorce map
+  m_EditorClassIdentifier: 
+  surfaceMaterialFromGuid:
+    guids:
+    - b3b351627aa8cbd45ab4e1bed40730c1
+    - 0000000000000000f000000000000000
+    - ad97bc7990e620346b7f22db7df449a9
+    - 6e8c90530ae58dd4f8966f2b5657078f
+    - 05e2e01a3678b524c9dfe98406e4bf84
+    - fb262cefbf7fbab46865b3273cb5f027
+    - e0eaedaf9c2370c4d8b002e5e7d137ea
+    - 67454829460550b41bdd3bd1712cb437
+    - 9b88573d35bc0b64dbba0a93710bbc85
+    - a493e868050117443a4a66b5df6a8517
+    - d0a08acc981bf81459009133827c1ee6
+    - 830a820af45bc694aa53d0b5cbd6abca
+    - 3e3fe7d08624f594bb8e96487091bd1a
+    - 880e2e5f4bbe65244a9f3ec120155c31
+    - 50bd5585f16eab541a31fb24cc02d739
+    surfaceMaterials: 000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
