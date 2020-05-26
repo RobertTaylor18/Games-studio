@@ -9,12 +9,14 @@ public class KillZone : MonoBehaviour
     public GameObject pointLocation;
     public GameObject currentPlayer;
     public CharSwap charSwap;
+    public AudioSource audioSrc;
     
     // Start is called before the first frame update
     void Start()
     {
         checkpoint = 0;
         charSwap = GameObject.Find("Player").GetComponent<CharSwap>();
+        audioSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,6 +37,11 @@ public class KillZone : MonoBehaviour
         if (other.gameObject.CompareTag("Player")) 
         {
             other.gameObject.transform.position = pointLocation.transform.position;
+        }
+        else
+        {
+            audioSrc.Play();
+            Destroy(other.gameObject);
         }
     }
 }
