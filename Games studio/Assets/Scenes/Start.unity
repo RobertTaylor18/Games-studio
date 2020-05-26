@@ -1368,9 +1368,6 @@ MonoBehaviour:
   forwardVel: 10
   jumpForce: 8
   fallMultiplier: 30
-  grav: 0
-  fallgrav: 0
-  Mag: {x: 0, y: 0, z: 0}
   isGrounded: 0
   groundCheck: {fileID: 1708770407}
   groundRadius: 0.1
@@ -1378,6 +1375,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   jumpCount: 0
+  audioManager: {fileID: 0}
 --- !u!54 &962560676
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8712,6 +8710,8 @@ MonoBehaviour:
   character: 1
   swapTimer: 0
   swapDist: 0
+  char1Canvas: {fileID: 0}
+  char2Canvas: {fileID: 0}
 --- !u!4 &1886895382
 Transform:
   m_ObjectHideFlags: 0
