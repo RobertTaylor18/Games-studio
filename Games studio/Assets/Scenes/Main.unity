@@ -1222,6 +1222,7 @@ RectTransform:
   - {fileID: 847694810}
   - {fileID: 1392809882}
   - {fileID: 454848487}
+  - {fileID: 1733089993}
   m_Father: {fileID: 839263208}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7837,6 +7838,12 @@ MonoBehaviour:
     m_Bits: 256
   jumpCount: 0
   audioManager: {fileID: 0}
+  hasJumped: 0
+  jumpPillImage: {fileID: 0}
+  jumpPills:
+  - {fileID: -8908417675505834704, guid: cce02ca34957d6447a0739413443c89c, type: 3}
+  - {fileID: -3806925123855882278, guid: cce02ca34957d6447a0739413443c89c, type: 3}
+  - {fileID: 5542626799166568746, guid: cce02ca34957d6447a0739413443c89c, type: 3}
 --- !u!54 &839263210
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14354,7 +14361,6 @@ MonoBehaviour:
   char2Canvas: {fileID: 0}
   redWifiImage: {fileID: 0}
   blueWifiImage: {fileID: 0}
-  wifiStrength: 0
   redWifiSignal:
   - {fileID: 4181314009488196411, guid: 0dfc4e3cb7ff13c4c98a0b10c8a22461, type: 3}
   - {fileID: 2218139924770502833, guid: 0dfc4e3cb7ff13c4c98a0b10c8a22461, type: 3}
@@ -14367,6 +14373,7 @@ MonoBehaviour:
   - {fileID: -5949280492403524977, guid: b42726511821ab04a9a1969afc98a15e, type: 3}
   - {fileID: 1976265200374505645, guid: b42726511821ab04a9a1969afc98a15e, type: 3}
   - {fileID: 6067886259334123417, guid: b42726511821ab04a9a1969afc98a15e, type: 3}
+  wifiStrength: 0
 --- !u!4 &1451138897
 Transform:
   m_ObjectHideFlags: 0
@@ -15909,9 +15916,9 @@ MonoBehaviour:
   char2Canvas: {fileID: 0}
   redWifiImage: {fileID: 0}
   blueWifiImage: {fileID: 0}
-  wifiStrength: 0
   redWifiSignal: []
   blueWifiSignal: []
+  wifiStrength: 0
 --- !u!4 &1661401681
 Transform:
   m_ObjectHideFlags: 0
@@ -16398,6 +16405,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724514289}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1733089992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1733089993}
+  - component: {fileID: 1733089995}
+  - component: {fileID: 1733089994}
+  m_Layer: 5
+  m_Name: JumpPills
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1733089993
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733089992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_Children: []
+  m_Father: {fileID: 147545982}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -435.9, y: 233.7}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1733089994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733089992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -8908417675505834704, guid: cce02ca34957d6447a0739413443c89c,
+    type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1733089995
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733089992}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1748222257
 PrefabInstance:
   m_ObjectHideFlags: 0

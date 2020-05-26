@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController1 : MonoBehaviour
 {
@@ -11,10 +12,17 @@ public class CharacterController1 : MonoBehaviour
 
     public bool isGrounded = false;
     public Transform groundCheck;
-    public float groundRadius = .1f;
+    public float groundRadius = .01f;
     public LayerMask Ground;
-    public float jumpCount;
+    public int jumpCount;
+
     public AudioManager audioManager;
+
+    public bool hasJumped;
+    public Image jumpPillImage;
+    public Sprite[] jumpPills;
+
+
 
 
     // Start is called before the first frame update
@@ -22,6 +30,7 @@ public class CharacterController1 : MonoBehaviour
     {
         rBody = GetComponent<Rigidbody>();
         audioManager = FindObjectOfType<AudioManager>();
+        jumpPillImage = GameObject.Find("JumpPills").GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -29,6 +38,8 @@ public class CharacterController1 : MonoBehaviour
     {
         Jump();
         GetInput();
+
+        jumpPillImage.sprite = jumpPills[jumpCount];
     }
 
     void FixedUpdate()
@@ -38,7 +49,7 @@ public class CharacterController1 : MonoBehaviour
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, Ground);
 
-        if (isGrounded)
+        if (isGrounded & !hasJumped)
         {
             jumpCount = 0;
         }
@@ -100,11 +111,16 @@ public class CharacterController1 : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && jumpCount < 1)
+        if (Input.GetButtonDown("Jump") & jumpCount < 2)
         {
             rBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             //rBody.velocity = new Vector3(0f,jumpForce,0f);
             jumpCount++;
+            hasJumped = true;
+        }
+        if (Input.GetButtonUp("Jump"))
+        {
+            hasJumped = false;
         }
     }
 }

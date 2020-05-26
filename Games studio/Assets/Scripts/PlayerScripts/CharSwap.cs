@@ -29,9 +29,9 @@ public class CharSwap : MonoBehaviour
     public GameObject char2Canvas;
     public Image redWifiImage;
     public Image blueWifiImage;
-    public int wifiStrength;
     public Sprite[] redWifiSignal;
     public Sprite[] blueWifiSignal;
+    public int wifiStrength;
 
     // Start is called before the first frame update
     void Start()
