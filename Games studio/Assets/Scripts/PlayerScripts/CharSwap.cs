@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharSwap : MonoBehaviour
 {
@@ -26,7 +27,11 @@ public class CharSwap : MonoBehaviour
 
     public GameObject char1Canvas;
     public GameObject char2Canvas;
-
+    public Image redWifiImage;
+    public Image blueWifiImage;
+    public int wifiStrength;
+    public Sprite[] redWifiSignal;
+    public Sprite[] blueWifiSignal;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +57,8 @@ public class CharSwap : MonoBehaviour
 
         char1Canvas = GameObject.Find("Canvas MORTE");
         char2Canvas = GameObject.Find("Canvas MSMR");
+        redWifiImage = GameObject.Find("RedWifi").GetComponent<Image>();
+        blueWifiImage = GameObject.Find("BlueWifi").GetComponent<Image>();
 
         char2Canvas.SetActive(false);
 
@@ -62,6 +69,7 @@ public class CharSwap : MonoBehaviour
     void Update()
     {
         swapDist = Vector3.Distance(char1.transform.position, char2.transform.position);
+
 
         if (swapTimer > 0) {
             swapTimer -= Time.deltaTime;
@@ -118,5 +126,32 @@ public class CharSwap : MonoBehaviour
             char1Canvas.SetActive(true);
             char2Canvas.SetActive(false);
         }
+
+        if (swapDist > 65)
+        {
+            wifiStrength = 0;
+        }
+        else if (swapDist > 48)
+        {
+            wifiStrength = 1;
+        }
+        else if (swapDist > 32)
+        {
+            wifiStrength = 2;
+        }
+        else if (swapDist > 16)
+        {
+            wifiStrength = 3;
+        }
+        else if (swapDist <= 16)
+        {
+            wifiStrength = 4;
+        }
+
+
+        redWifiImage.sprite = redWifiSignal[wifiStrength];
+        blueWifiImage.sprite = blueWifiSignal[wifiStrength];
+
+
     }
 }
