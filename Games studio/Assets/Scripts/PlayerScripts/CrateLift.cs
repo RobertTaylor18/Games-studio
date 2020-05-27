@@ -49,6 +49,7 @@ public class CrateLift : MonoBehaviour
         this.transform.parent = GameObject.Find("Props").transform;
         rBody.useGravity = true;
         rBody.constraints = RigidbodyConstraints.None;
+        rBody.constraints = RigidbodyConstraints.FreezeRotation;
         Color tempColor = crateRenderer.material.color;
         tempColor.a = 1;
         crateRenderer.material.color = tempColor;
