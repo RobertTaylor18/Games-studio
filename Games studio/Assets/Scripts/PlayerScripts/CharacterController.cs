@@ -8,7 +8,6 @@ public class CharacterController : MonoBehaviour
     public float inputDelay = 0.1f;
     public float forwardVel;
     public float rotateVel;
-    float fallMultiplier  = 30f;
 
     Quaternion targetRotation;
     Rigidbody rBody;
