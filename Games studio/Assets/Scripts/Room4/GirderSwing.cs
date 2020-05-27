@@ -38,7 +38,7 @@ public class GirderSwing : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.transform.parent = GameObject.Find("Char2").transform;
+            other.gameObject.transform.parent = GameObject.Find("Player").transform;
         }
     }
 }
