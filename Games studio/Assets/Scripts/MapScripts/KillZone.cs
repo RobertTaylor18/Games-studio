@@ -22,10 +22,12 @@ public class KillZone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Sets respawn to last checkpoint
         pointLocation = GameObject.Find("Checkpoint" + checkpoint);
 
         currentPlayer = GameObject.Find("Char" + charSwap.character);
 
+        //Manual respawn
         if (Input.GetKeyDown("r"))
         {
             currentPlayer.gameObject.transform.position = pointLocation.transform.position + (Vector3.up * 2);
@@ -34,6 +36,7 @@ public class KillZone : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        //If player collides then respawn if anything else collides play scream and destroy it
         if (other.gameObject.CompareTag("Player")) 
         {
             other.gameObject.transform.position = pointLocation.transform.position;

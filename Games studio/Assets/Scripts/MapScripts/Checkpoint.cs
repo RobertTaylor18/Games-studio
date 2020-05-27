@@ -24,6 +24,7 @@ public class Checkpoint : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //If player collides then set checkpoint
         if (other.gameObject.CompareTag("Player"))
         {
             killScript.checkpoint++;
