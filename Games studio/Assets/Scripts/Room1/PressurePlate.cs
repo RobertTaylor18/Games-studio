@@ -16,7 +16,7 @@ public class PressurePlate : MonoBehaviour
 
     public int plateId;
 
-    // Start is called before the first frame update
+    // Gathering all the components for refernecing needed in this script
     void Start()
     {
         p2Script = p2.GetComponent<PlateCheck>();
@@ -27,6 +27,7 @@ public class PressurePlate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //This will check if the pressure plate is active and will play a sound
         if (activated & !playedOnce)
         {
             playedOnce = true;
@@ -38,8 +39,7 @@ public class PressurePlate : MonoBehaviour
         }
 
 
-
-
+        //Here we check if both pressure plates have been activated and will open a door if true.
         if (activated == true && p2Script.isActive == true)
         {
             if (plateId == 1)
@@ -63,6 +63,7 @@ public class PressurePlate : MonoBehaviour
                 door.transform.Translate(doorSpeed, 0, 0);
             }
         }
+        //If both pressure plates arent active then this will close the door
         else
         {
             if (plateId == 1)
@@ -76,6 +77,7 @@ public class PressurePlate : MonoBehaviour
         }
     }
 
+    //These two functions are checking whether or not any object is in the pressure plates trigger boundry
     void OnTriggerStay(Collider other)
     {
         activated = true;
@@ -84,13 +86,5 @@ public class PressurePlate : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         activated = false;
-       /* if (plateId == 1)
-        {
-            door.transform.Translate(-10, 0, 0);
-        }
-        else if (plateId == 2)
-        {
-            door.transform.Translate(10, 0, 0);
-        }*/
     }
 }

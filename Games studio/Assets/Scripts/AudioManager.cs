@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        // Gives us control over soundclips infomataion in the inspector
         foreach (Sound s in sounds)
         {
             s.sourse = gameObject.AddComponent<AudioSource>();
@@ -22,12 +23,13 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // Starts playing music from the start of the game
     void Start()
     {
         Play("Music");
     }
 
-    // Update is called once per frame
+    // A function to play audio by referncing its name
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -39,6 +41,7 @@ public class AudioManager : MonoBehaviour
         s.sourse.Play();
     }
 
+    // A function to stop playing audio by referncing its name
     public void Stop(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -50,6 +53,7 @@ public class AudioManager : MonoBehaviour
         s.sourse.Stop();
     }
 
+    // A function to get the sound clip of a stored clip
     public AudioClip getClip(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
