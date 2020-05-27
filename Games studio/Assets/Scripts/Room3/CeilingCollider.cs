@@ -8,7 +8,8 @@ public class CeilingCollider : MonoBehaviour
     public string objectTag = "Untagged";
     public GameObject objectGameObject;
 
-
+    //These two functions get the name and tag of the colliding object of the object that this script is attacked to.
+    //This is done to send this infomation to other scripts
     void OnCollisionEnter(Collision collision)
     {
         colliding = true;

@@ -13,14 +13,16 @@ public class StairVoicelines : MonoBehaviour
 
     void Start()
     {
+        // Gathering all the audio components for refernecing needed in this script
         audioSource = GameObject.Find("Char1").GetComponent<AudioSource>();
         audioManager = GameObject.FindObjectOfType<AudioManager>();
 
     }
 
+    // If player enters the trigger area. Choose at random one of two audio clips to play
     void OnTriggerEnter(Collider other)
     {
-        if (!hasTriggered)
+        if (!hasTriggered & other.gameObject.tag == "Player")
         {
             int chooseClip = random.Next(0, 2);
             hasTriggered = true;

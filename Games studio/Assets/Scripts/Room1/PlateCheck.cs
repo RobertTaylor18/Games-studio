@@ -13,6 +13,7 @@ public class PlateCheck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Gathering all the components for refernecing needed in this script
         audioSource = GetComponent<AudioSource>();
         audioClip = audioSource.clip;
     }
@@ -20,6 +21,7 @@ public class PlateCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //This checks if the pressure plate is being stood on and will play a sound if true
         if (isActive & !playedOnce)
         {
             playedOnce = true;
@@ -33,13 +35,11 @@ public class PlateCheck : MonoBehaviour
         }
     }
 
+    //These two functions are checking whether or not any object is in the pressure plates trigger boundry
     void OnTriggerStay(Collider other)
     {
-        isActive = true;
-
-        
+        isActive = true;    
     }
-
     void OnTriggerExit(Collider other)
     {
         isActive = false;

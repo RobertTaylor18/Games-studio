@@ -22,6 +22,7 @@ public class FallingCeiling : MonoBehaviour
     public AudioClip audioClip;
     AudioSource audioSource;
 
+    // Gathering all the components for refernecing needed in this script
     void Start()
     {
         selectionManager = MSMR.GetComponent<SelectionManager>();
@@ -30,9 +31,12 @@ public class FallingCeiling : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioClip = audioSource.clip;
     }
-    // Update is called once per frame
+
+
+
     void Update()
     {
+        //This is checking the object that the player is looking at, if its the correct oject and the player clicks on it a sound and animaton will play
         if (selectionManager._selection == leverHandel)
         {
             if (Input.GetButtonDown("Fire1"))
@@ -51,35 +55,23 @@ public class FallingCeiling : MonoBehaviour
             }
         }
 
+        // If the lever is activated we give the ceiling and door a velocity to move at
         if (activated)
         {
             ceiling.velocity = new Vector3(0, -1f, 0);
             door.velocity = new Vector3(4, 0, 0);
         }
+        // Resetting the ceiling and door positions if the lever is deactivated
         else if (!activated)
         {
             myAnimationContoller.SetBool("leverActive", false);
             ceiling.transform.localPosition = new Vector3(95.56999f,48.9802f, -17.98616f);
             door.transform.localPosition = new Vector3(125.64f, 7.78f, 14.87f);
         }
-
+        //Once the door has opened enough this stops it moving
         if (door.transform.localPosition.x > 132)
         {
             door.velocity = Vector3.zero;
         }
     }
-
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-
-        }
-        else
-        {
-            ceiling.velocity = Vector3.zero;
-        }
-    }
-
 }

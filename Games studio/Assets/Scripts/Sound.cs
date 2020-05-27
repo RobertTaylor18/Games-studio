@@ -1,6 +1,10 @@
 ﻿using UnityEngine.Audio;
 using UnityEngine;
 
+
+// This is a class to store soundclips and its infomation in an easily accessable way
+
+
 [System.Serializable]
 public class Sound
 {

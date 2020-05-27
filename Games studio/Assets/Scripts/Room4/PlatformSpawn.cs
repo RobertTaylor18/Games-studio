@@ -11,14 +11,17 @@ public class PlatformSpawn : MonoBehaviour
     AudioSource audioSource;
     private bool playedOnce = false;
 
+    // Gathering all the audio components for refernecing needed in this script
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         audioClip = audioSource.clip;
     }
 
+
     void Update()
     {
+        // Check if the pressure plate has been activated and play a sound if so
         if (activated & !playedOnce)
         {
             playedOnce = true;
@@ -32,7 +35,7 @@ public class PlatformSpawn : MonoBehaviour
         }
     }
 
-
+    // Activate or deactivate the pressure plate when stood on
     void OnTriggerStay(Collider other)
     {
         activated = true;
