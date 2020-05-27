@@ -8,6 +8,7 @@ TagManager:
   - WallStop
   - Crate
   - Fork
+  - Stairs
   layers:
   - Default
   - TransparentFX

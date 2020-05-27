@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CharSwap : MonoBehaviour
 {
-
+    private System.Random random = new System.Random();
     public GameObject char1;
     public GameObject char2;
     
@@ -32,6 +32,16 @@ public class CharSwap : MonoBehaviour
     public Sprite[] redWifiSignal;
     public Sprite[] blueWifiSignal;
     public int wifiStrength;
+
+    public AudioSource morteAudioSource;
+    public AudioSource msmrAudioSource;
+    public AudioClip[] morteAudioClips;
+    public AudioClip[] msmrAudioClips;
+
+    public float timer;
+    [Header("Frequency of random voice lines (in seconds)")]
+    public int frequency;
+
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +73,12 @@ public class CharSwap : MonoBehaviour
         char2Canvas.SetActive(false);
 
         audioManager.Play("MORTE Walking");
+
+        morteAudioSource = GameObject.Find("Char1").GetComponent<AudioSource>();
+        msmrAudioSource = GameObject.Find("Char2").GetComponent<AudioSource>();
+
+        morteAudioSource.volume = 0.5f;
+        msmrAudioSource.volume = 0.5f;
     }
 
     // Update is called once per frame
@@ -70,6 +86,7 @@ public class CharSwap : MonoBehaviour
     {
         swapDist = Vector3.Distance(char1.transform.position, char2.transform.position);
 
+        timer += Time.deltaTime;
 
         if (swapTimer > 0) {
             swapTimer -= Time.deltaTime;
@@ -79,6 +96,7 @@ public class CharSwap : MonoBehaviour
             swapTimer = 0;
         }
 
+        //Morte ----> MSMR
         if (Input.GetButton("Fire2") && character == 1 && swapTimer == 0 && swapDist <= 65 )
         {
             char1control.enabled = false;
@@ -103,7 +121,27 @@ public class CharSwap : MonoBehaviour
             char1Canvas.SetActive(false);
             char2Canvas.SetActive(true);
 
+            int chooseChar = random.Next(1, 4);
+            //Morte Speaks
+            if (chooseChar == 1)
+            {
+                int chooseClip = random.Next(6, 9);
+                if (chooseClip == 6 || chooseClip == 7)
+                {
+                    morteAudioSource.PlayOneShot(morteAudioClips[chooseClip]);
+                }
+            }
+            //MSMR Speaks
+            else if (chooseChar == 2)
+            {
+                int chooseClip = random.Next(5, 8);
+                msmrAudioSource.PlayOneShot(msmrAudioClips[chooseClip]);
+            }
+
+
         }
+
+        //MSMR ----> Morte
         else if (Input.GetButton("Fire2") && character == 2 && swapTimer == 0 && swapDist <= 65)
         {
             char1control.enabled = true;
@@ -125,6 +163,27 @@ public class CharSwap : MonoBehaviour
 
             char1Canvas.SetActive(true);
             char2Canvas.SetActive(false);
+
+            int chooseChar = random.Next(1, 4);
+            //Morte Speaks
+            if (chooseChar == 1)
+            {
+                int chooseClip = random.Next(8, 10);
+                morteAudioSource.PlayOneShot(morteAudioClips[chooseClip]);
+            }
+            //MSMR Speaks
+            else if (chooseChar == 2)
+            {
+                int chooseClip = random.Next(4, 6);
+                if (chooseClip == 4)
+                {
+                    msmrAudioSource.PlayOneShot(msmrAudioClips[chooseClip]);
+                }
+
+            }
+
+
+
         }
 
         if (swapDist > 65)
@@ -153,5 +212,24 @@ public class CharSwap : MonoBehaviour
         blueWifiImage.sprite = blueWifiSignal[wifiStrength];
 
 
+    }
+
+    void LateUpdate()
+    {
+        if (Mathf.RoundToInt(timer) == frequency)
+        {
+            timer = 0;
+            int chooseClip = random.Next(0, 4);
+            int chooseChar = random.Next(1, 3);
+            if(chooseChar == 1)
+            {
+                morteAudioSource.PlayOneShot(morteAudioClips[chooseClip]);
+            }
+            else if (chooseChar == 2)
+            {
+                msmrAudioSource.PlayOneShot(msmrAudioClips[chooseClip]);
+            }
+        }
+        
     }
 }

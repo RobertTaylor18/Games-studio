@@ -50,4 +50,15 @@ public class AudioManager : MonoBehaviour
         s.sourse.Stop();
     }
 
+    public AudioClip getClip(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound" + name + "not found.");
+            return null;
+        }
+        return s.sourse.clip;
+    }
+
 }
